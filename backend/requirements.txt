@@ -26,7 +26,6 @@ pandas==2.0.3
 pefile==2023.2.7
 phonenumbers==9.0.10
 pycparser==2.22
-pyinstaller @ file:///C:/piptemp/PyInstaller-6.15.0.tar.gz#sha256=a48fc4644ee4aa2aa2a35e7b51f496f8fbd7eecf6a2150646bbf1613ad07bc2d
 pyinstaller-hooks-contrib==2025.8
 PyMySQL==1.1.1
 pypiwin32==223
