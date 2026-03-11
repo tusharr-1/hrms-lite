@@ -55,3 +55,7 @@ wsproto==1.2.0
 zipp==3.20.2
 setuptools
 wheel
+Django
+djangorestframework
+django-cors-headers
+gunicorn
