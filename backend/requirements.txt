@@ -10,7 +10,7 @@ charset-normalizer==3.4.2
 click==8.1.8
 colorama==0.4.6
 comtypes==1.4.11
-Django==4.2.18
+Django==4.2.7
 et_xmlfile==2.0.0
 exceptiongroup==1.3.0
 h11==0.16.0
@@ -26,7 +26,6 @@ pandas==2.0.3
 pefile==2023.2.7
 phonenumbers==9.0.10
 pycparser==2.22
-pyinstaller-hooks-contrib==2025.8
 PyMySQL==1.1.1
 pypiwin32==223
 pypng==0.20220715.0
@@ -53,9 +52,7 @@ urllib3==2.2.3
 websocket-client==1.8.0
 wsproto==1.2.0
 zipp==3.20.2
-setuptools
 wheel
-Django
 djangorestframework
 django-cors-headers
 gunicorn
