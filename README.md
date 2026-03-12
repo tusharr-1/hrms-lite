@@ -71,13 +71,17 @@ https://github.com/tusharr-1/hrms-lite
 Backend Setup
 
 cd backend
+
 pip install -r requirements.txt
+
 python manage.py runserver
 
 Frontend Setup
 
 cd frontend
+
 npm install
+
 npm run dev
 
 ---
