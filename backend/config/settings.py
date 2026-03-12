@@ -32,7 +32,7 @@ DEBUG = True
 # ALLOWED_HOSTS = ["*"]
 
 ALLOWED_HOSTS = [
-    "hrms-backend-z04e.onrender.com"
+    "hrms-backend-zo4e.onrender.com"
 ]
 
 # Application definition
