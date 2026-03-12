@@ -5,6 +5,14 @@ HRMS Lite is a Full Stack Employee and Attendance Management System built using 
 This project allows administrators to manage employees and track their attendance efficiently.
 
 ---
+# Login Credentials 
+
+Use the following credentials to access the system.
+
+Username: admin
+Password: admin
+
+---
 
 # Tech Stack
 
