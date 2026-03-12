@@ -68,7 +68,7 @@ https://github.com/tusharr-1/hrms-lite
 
 # Run Project Locally
 
-Backend Setup
+Backend Setup:-
 
 cd backend
 
@@ -76,7 +76,7 @@ pip install -r requirements.txt
 
 python manage.py runserver
 
-Frontend Setup
+Frontend Setup:-
 
 cd frontend
 
