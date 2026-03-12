@@ -91,14 +91,26 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'hrms_db',
+#         'USER': 'root',
+#         'PASSWORD': 'tiger',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
+    'default': { 
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hrms_db',
+        'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': 'tiger',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PASSWORD': 'uSHcFrojFixXKMczZrjuMTqkSVnRtNmK',
+        'HOST': 'hopper.proxy.rlwy.net',
+        'PORT': '53530',
     }
 }
 
