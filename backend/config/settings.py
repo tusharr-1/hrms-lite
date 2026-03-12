@@ -29,7 +29,11 @@ SECRET_KEY = 'django-insecure-#u2whbn+!8e1yj)5g*cs_3-+v0dq=x82^35fpf6(_m$hc%6p6r
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ["*"]
+
+ALLOWED_HOSTS = [
+    "hrms-backend-z04e.onrender.com"
+]
 
 # Application definition
 
