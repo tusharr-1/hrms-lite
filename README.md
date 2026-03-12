@@ -43,9 +43,13 @@ Attendance Management
 # Project Architecture
 
 React Frontend
+
 ↓
+
 Django REST API
+
 ↓
+
 MySQL Database
 
 ---
