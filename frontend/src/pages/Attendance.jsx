@@ -198,13 +198,15 @@ function Attendance() {
 
                 <div style={{
                     width: "100%",
-                    overflowX: "auto"
+                    overflowX: "auto",
+                    display: "block"
                 }}>
 
                     <table style={{
                         width: "100%",
                         borderCollapse: "collapse",
-                        minWidth: "1100px"
+                        tableLayout: "auto",
+                        // minWidth: "1100px"
                     }}>
 
                         <thead style={{ background: "#f4f6f9" }}>
@@ -272,7 +274,12 @@ function Attendance() {
 
                                     </td>
 
-                                    <td style={tdRight}>
+                                    {/* <td style={tdRight}> */}
+                                    <td style={{
+    padding: "16px 18px",
+    textAlign: "center",
+    whiteSpace: "nowrap"
+}}>
 
                                         <select
                                             value={attendanceData[emp.id]?.status || ""}
@@ -353,7 +360,8 @@ const tdCenter = {
 
 const tdRight = {
     padding: "16px 18px",
-    textAlign: "right"
+    textAlign: "center",
+    whiteSpace: "nowrap"
 };
 
 export default Attendance;
