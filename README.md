@@ -19,8 +19,8 @@ MySQL (Railway)
 
 Deployment
 
-Frontend → Vercel
-Backend → Render
+Frontend → Vercel,
+Backend → Render,
 Database → Railway
 
 ---
