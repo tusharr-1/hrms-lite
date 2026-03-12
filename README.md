@@ -10,6 +10,7 @@ This project allows administrators to manage employees and track their attendanc
 Use the following credentials to access the system.
 
 Username: admin
+
 Password: admin
 
 ---
