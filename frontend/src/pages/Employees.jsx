@@ -138,6 +138,21 @@ function Employees() {
 
     };
 
+    const inputStyle = {
+        width: "100%",
+        padding: "10px",
+        borderRadius: "8px",
+        border: "1px solid #d0d5dd",
+        marginTop: "5px",
+        outline: "none"
+    };
+
+    const Error = ({ msg }) => (
+        <div style={{ color: "red", fontSize: "12px", marginTop: "4px" }}>
+            {msg}
+        </div>
+    );
+
     return (
 
         <Layout>
@@ -174,128 +189,62 @@ function Employees() {
 
                 </div>
 
-                {/* <table style={{
-                    width: "100%",
-                    borderCollapse: "collapse"
+                <table style={{
+                    width:"100%",
+                    borderCollapse:"collapse",
+                    tableLayout:"fixed"
                 }}>
 
-                    <thead style={{ background: "#f4f6f9" }}>
+                <thead style={{background:"#f4f6f9"}}>
 
-                        <tr>
-                            <th style={{ padding: "12px" }}>ID</th>
-                            <th style={{ padding: "12px" }}>Name</th>
-                            <th style={{ padding: "12px" }}>Email</th>
-                            <th style={{ padding: "12px" }}>Department</th>
-                            <th style={{ padding: "12px" }}>Action</th>
-                        </tr>
+                <tr>
+                <th style={{padding:"12px",textAlign:"left",width:"70px"}}>S.No</th>
+                <th style={{padding:"12px",textAlign:"left"}}>ID</th>
+                <th style={{padding:"12px",textAlign:"left"}}>Name</th>
+                <th style={{padding:"12px",textAlign:"left"}}>Email</th>
+                <th style={{padding:"12px",textAlign:"left"}}>Department</th>
+                <th style={{padding:"12px",textAlign:"center",width:"120px"}}>Action</th>
+                </tr>
 
-                    </thead>
+                </thead>
 
-                    <tbody>
+                <tbody>
 
-                        {employees.map(emp => (
+                {employees.map((emp,index)=>(
 
-                            <tr key={emp.id} style={{ borderTop: "1px solid #eee" }}>
+                <tr key={emp.id} style={{borderTop:"1px solid #eee"}}>
+                <td style={{padding:"12px"}}>{index+1}</td>
+                <td style={{padding:"12px"}}>{emp.employee_id}</td>
+                <td style={{padding:"12px"}}>{emp.full_name}</td>
+                <td style={{padding:"12px"}}>{emp.email}</td>
+                <td style={{padding:"12px"}}>{emp.department}</td>
 
-                                <td style={{ padding: "12px" }}>{emp.employee_id}</td>
-                                <td style={{ padding: "12px" }}>{emp.full_name}</td>
-                                <td style={{ padding: "12px" }}>{emp.email}</td>
-                                <td style={{ padding: "12px" }}>{emp.department}</td>
+                <td style={{padding:"12px",textAlign:"center"}}>
+                <button
+                onClick={()=>deleteEmployee(emp.id)}
+                style={{
+                background:"#ff4d4f",
+                color:"white",
+                border:"none",
+                padding:"6px 12px",
+                borderRadius:"5px",
+                cursor:"pointer"
+                }}>
+                Delete
+                </button>
+                </td>
 
-                                <td style={{ padding: "12px" }}>
+                </tr>
 
-                                    <button
-                                        onClick={() => deleteEmployee(emp.id)}
-                                        style={{
-                                            background: "#ff4d4f",
-                                            color: "white",
-                                            border: "none",
-                                            padding: "6px 12px",
-                                            borderRadius: "5px",
-                                            cursor: "pointer"
-                                        }}
-                                    >
-                                        Delete
-                                    </button>
+                ))}
 
-                                </td>
+                </tbody>
 
-                            </tr>
-
-                        ))}
-
-                    </tbody>
-
-                </table> */}
-
-                <table style={{
-width:"100%",
-borderCollapse:"collapse",
-tableLayout:"fixed"
-}}>
-
-<thead style={{background:"#f4f6f9"}}>
-
-<tr>
-
-<th style={{padding:"12px",textAlign:"left",width:"70px"}}>S.No</th>
-<th style={{padding:"12px",textAlign:"left"}}>ID</th>
-<th style={{padding:"12px",textAlign:"left"}}>Name</th>
-<th style={{padding:"12px",textAlign:"left"}}>Email</th>
-<th style={{padding:"12px",textAlign:"left"}}>Department</th>
-<th style={{padding:"12px",textAlign:"center",width:"120px"}}>Action</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-{employees.map((emp,index)=>(
-
-<tr key={emp.id} style={{borderTop:"1px solid #eee"}}>
-
-<td style={{padding:"12px"}}>{index+1}</td>
-
-<td style={{padding:"12px"}}>{emp.employee_id}</td>
-
-<td style={{padding:"12px"}}>{emp.full_name}</td>
-
-<td style={{padding:"12px"}}>{emp.email}</td>
-
-<td style={{padding:"12px"}}>{emp.department}</td>
-
-<td style={{padding:"12px",textAlign:"center"}}>
-
-<button
-onClick={()=>deleteEmployee(emp.id)}
-style={{
-background:"#ff4d4f",
-color:"white",
-border:"none",
-padding:"6px 12px",
-borderRadius:"5px",
-cursor:"pointer"
-}}
->
-Delete
-</button>
-
-</td>
-
-</tr>
-
-))}
-
-</tbody>
-
-</table>
+                </table>
 
             </div>
 
-
             {/* Modal */}
-
             {showModal && (
 
                 <div style={{
@@ -311,16 +260,15 @@ Delete
                     zIndex: 1000
                 }}>
 
+                    {/* ✅ UPDATED FORM */}
                     <div style={{
-                        background: "#f9fafc",
-                        width: "430px",
+                        background: "#f4f6f9",
+                        width: "520px",
                         borderRadius: "16px",
                         padding: "30px",
                         boxShadow: "0 10px 35px rgba(0,0,0,0.25)",
                         position: "relative"
                     }}>
-
-                        {/* Close Button */}
 
                         <div
                             onClick={() => setShowModal(false)}
@@ -336,145 +284,66 @@ Delete
                                 justifyContent: "center",
                                 alignItems: "center",
                                 cursor: "pointer",
-                                fontWeight: "bold",
-                                fontSize: "16px"
+                                fontWeight: "bold"
                             }}
                         >
                             ×
                         </div>
 
-                        <h3 style={{
-                            marginBottom: "25px",
-                            fontWeight: "600"
-                        }}>
+                        <h3 style={{ marginBottom: "20px", fontWeight: "600" }}>
                             Create New Employee
                         </h3>
 
+                        <div style={{ display: "grid", gap: "15px" }}>
 
-                        {/* Employee ID */}
-
-                        <label style={{ fontSize: "14px" }}>
-                            Employee ID <span style={{ color: "red" }}>*</span>
-                        </label>
-
-                        <input
-                            name="employee_id"
-                            value={formData.employee_id}
-                            onChange={handleChange}
-                            style={{
-                                width: "100%",
-                                padding: "11px",
-                                marginTop: "6px",
-                                marginBottom: "6px",
-                                borderRadius: "7px",
-                                border: "1px solid #d0d5dd"
-                            }}
-                        />
-
-                        {errors.employee_id && (
-                            <div style={{ color: "red", fontSize: "12px", marginBottom: "14px" }}>
-                                {errors.employee_id}
+                            <div>
+                                <label>Employee ID *</label>
+                                <input name="employee_id" value={formData.employee_id} onChange={handleChange} style={inputStyle}/>
+                                {errors.employee_id && <Error msg={errors.employee_id} />}
                             </div>
-                        )}
 
-
-                        {/* Name */}
-
-                        <label style={{ fontSize: "14px" }}>
-                            Full Name <span style={{ color: "red" }}>*</span>
-                        </label>
-
-                        <input
-                            name="full_name"
-                            value={formData.full_name}
-                            onChange={handleChange}
-                            style={{
-                                width: "100%",
-                                padding: "11px",
-                                marginTop: "6px",
-                                marginBottom: "6px",
-                                borderRadius: "7px",
-                                border: "1px solid #d0d5dd"
-                            }}
-                        />
-
-                        {errors.full_name && (
-                            <div style={{ color: "red", fontSize: "12px", marginBottom: "14px" }}>
-                                {errors.full_name}
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+                                <div>
+                                    <label>First Name *</label>
+                                    <input name="full_name" value={formData.full_name} onChange={handleChange} style={inputStyle}/>
+                                    {errors.full_name && <Error msg={errors.full_name} />}
+                                </div>
+                                <div>
+                                    <label>Last Name</label>
+                                    <input placeholder="Optional" style={inputStyle}/>
+                                </div>
                             </div>
-                        )}
 
-
-                        {/* Email */}
-
-                        <label style={{ fontSize: "14px" }}>
-                            Email <span style={{ color: "red" }}>*</span>
-                        </label>
-
-                        <input
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            style={{
-                                width: "100%",
-                                padding: "11px",
-                                marginTop: "6px",
-                                marginBottom: "6px",
-                                borderRadius: "7px",
-                                border: "1px solid #d0d5dd"
-                            }}
-                        />
-
-                        {errors.email && (
-                            <div style={{ color: "red", fontSize: "12px", marginBottom: "14px" }}>
-                                {errors.email}
+                            <div>
+                                <label>Email *</label>
+                                <input name="email" value={formData.email} onChange={handleChange} style={inputStyle}/>
+                                {errors.email && <Error msg={errors.email} />}
                             </div>
-                        )}
 
-
-                        {/* Department */}
-
-                        <label style={{ fontSize: "14px" }}>
-                            Department <span style={{ color: "red" }}>*</span>
-                        </label>
-
-                        <input
-                            name="department"
-                            value={formData.department}
-                            onChange={handleChange}
-                            style={{
-                                width: "100%",
-                                padding: "11px",
-                                marginTop: "6px",
-                                marginBottom: "18px",
-                                borderRadius: "7px",
-                                border: "1px solid #d0d5dd"
-                            }}
-                        />
-
-
-                        {errors.department && (
-                            <div style={{ color: "red", fontSize: "12px", marginBottom: "18px" }}>
-                                {errors.department}
+                            <div>
+                                <label>Department *</label>
+                                <input name="department" value={formData.department} onChange={handleChange} style={inputStyle}/>
+                                {errors.department && <Error msg={errors.department} />}
                             </div>
-                        )}
 
-                        <button
-                            onClick={addEmployee}
-                            style={{
-                                width: "100%",
-                                background: "#3b5fcc",
-                                color: "white",
-                                padding: "13px",
-                                border: "none",
-                                borderRadius: "7px",
-                                fontWeight: "600",
-                                cursor: "pointer",
-                                marginTop: "5px"
-                            }}
-                        >
-                            Create Employee
-                        </button>
+                            <button
+                                onClick={addEmployee}
+                                style={{
+                                    width: "100%",
+                                    background: "linear-gradient(135deg,#4f46e5,#6366f1)",
+                                    color: "white",
+                                    padding: "12px",
+                                    border: "none",
+                                    borderRadius: "8px",
+                                    fontWeight: "600",
+                                    cursor: "pointer",
+                                    marginTop: "10px"
+                                }}
+                            >
+                                Create Employee
+                            </button>
+
+                        </div>
 
                     </div>
 
