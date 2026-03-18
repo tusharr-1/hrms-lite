@@ -8,20 +8,42 @@ class EmployeeSerializer(serializers.ModelSerializer):
         model = Employee
         fields = '__all__'
 
-    def validate_employee_id(self, value):
+    def validate(self, data):
 
-        if Employee.objects.filter(employee_id=value).exists():
-            raise serializers.ValidationError("Employee ID already exists")
+        instance = self.instance
 
-        return value
+        employee_id = data.get("employee_id")
+        email = data.get("email")
 
-    def validate_email(self, value):
+        # CREATE
+        if not instance:
 
-        if Employee.objects.filter(email=value).exists():
-            raise serializers.ValidationError("Email already exists")
+            if Employee.objects.filter(employee_id=employee_id).exists():
+                raise serializers.ValidationError({
+                    "employee_id": "Employee ID already exists"
+                })
 
-        return value
+            if Employee.objects.filter(email=email).exists():
+                raise serializers.ValidationError({
+                    "email": "Email already exists"
+                })
 
+        # UPDATE
+        else:
+
+            if employee_id:
+                if Employee.objects.filter(employee_id=employee_id).exclude(id=instance.id).exists():
+                    raise serializers.ValidationError({
+                        "employee_id": "Employee ID already exists"
+                    })
+
+            if email:
+                if Employee.objects.filter(email=email).exclude(id=instance.id).exists():
+                    raise serializers.ValidationError({
+                        "email": "Email already exists"
+                    })
+
+        return data
 
 
 class AttendanceSerializer(serializers.ModelSerializer):
@@ -36,7 +58,6 @@ class AttendanceSerializer(serializers.ModelSerializer):
         date = data.get("date")
 
         if Attendance.objects.filter(employee=employee, date=date).exists():
-
             raise serializers.ValidationError(
                 "Attendance already marked for this employee on this date"
             )
